@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 
+#include "utils.h"
+
+#define POPULATION_SIZE 5
+
 namespace Ui {
 class MainWindow;
 }
@@ -17,9 +21,13 @@ public:
 
     void refreshPixmap();
     void paintEvent(QPaintEvent *event);
+    QPointF convertVector2dtoqpointf(QVector2D vector);
 private:
     Ui::MainWindow *ui;
     QPixmap pixmap;
+
+    VectorOfSolutions vectorOfSolutions;
+    void buildInitialSolutions();
 };
 
 #endif // MAINWINDOW_H

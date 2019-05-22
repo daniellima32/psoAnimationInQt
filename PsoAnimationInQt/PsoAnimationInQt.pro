@@ -28,12 +28,15 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     coordinatesmanip.cpp \
-    NumericalUtils.cpp
+    NumericalUtils.cpp \
+    solution.cpp
 
 HEADERS += \
         mainwindow.h \
     coordinatesmanip.h \
-    NumericalUtils.h
+    NumericalUtils.h \
+    solution.h \
+    utils.h
 
 FORMS += \
         mainwindow.ui
