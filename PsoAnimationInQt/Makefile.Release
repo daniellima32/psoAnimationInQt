@@ -229,6 +229,7 @@ release/moc_mainwindow.cpp: C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/Q
 		utils.h \
 		solution.h \
 		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/QVector2D \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/QSize \
 		mainwindow.h \
 		release/moc_predefs.h \
 		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/bin/moc.exe
@@ -367,6 +368,7 @@ release/main.o: main.cpp mainwindow.h \
 		utils.h \
 		solution.h \
 		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/QVector2D \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/QSize \
 		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/QApplication \
 		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qapplication.h \
 		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/qcoreapplication.h \
@@ -486,7 +488,46 @@ release/mainwindow.o: mainwindow.cpp mainwindow.h \
 		utils.h \
 		solution.h \
 		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/QVector2D \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/QSize \
 		ui_mainwindow.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/QVariant \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/QAction \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qaction.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qactiongroup.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/QApplication \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qapplication.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/qeventloop.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/qguiapplication.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/qinputmethod.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/QButtonGroup \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qbuttongroup.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/QHeaderView \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qstyleoption.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/qvalidator.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/qregularexpression.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qslider.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qabstractslider.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qstyle.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qtabbar.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qrubberband.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/QMenuBar \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qmenubar.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qmenu.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/QStatusBar \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qstatusbar.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/QToolBar \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/qtoolbar.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/QPainter \
 		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/qpainter.h \
 		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtGui/qtextoption.h \
@@ -567,6 +608,8 @@ release/solution.o: solution.cpp solution.h \
 		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/qalgorithms.h \
 		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/qobjectdefs.h \
 		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/QSize \
+		C:/Qt/Qt5.10.0/5.10.0/mingw53_32/include/QtCore/qsize.h \
 		fitness.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/solution.o solution.cpp
 

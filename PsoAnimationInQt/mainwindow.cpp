@@ -102,6 +102,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+QVector2D MainWindow::sum(QVector2D v1, QVector2D v2)
+{
+    return QVector2D(v1.x()+v2.x(), v1.y()+v2.y());
+}
+
 void MainWindow::refreshPixmap()
 {
     pixmap = QPixmap(size());
@@ -114,8 +119,10 @@ void MainWindow::refreshPixmap()
 
     for (auto solution: vectorOfSolutions)
     {
-        QLineF line(convertVector2dtoqpointf(solution.getPosition()), convertVector2dtoqpointf(solution.getVelocity()));
+        //QLineF line(convertVector2dtoqpointf(solution.getPosition()), convertVector2dtoqpointf(solution.getVelocity()));
+        QLineF line(convertVector2dtoqpointf(solution.getPosition()), convertVector2dtoqpointf(sum(solution.getPosition(), solution.getVelocity())));
         painter.drawLine(line);
+        painter.drawEllipse(convertVector2dtoqpointf(solution.getPosition()), 5, 5);
 
         std::vector<QPointF> vec = CoordinatesManip::getArrowPoints(line);
 

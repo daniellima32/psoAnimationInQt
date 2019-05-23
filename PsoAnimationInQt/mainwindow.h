@@ -31,6 +31,7 @@ private:
     void buildInitialSolutions();
     void pso(int iterations);
     void wasteTime();
+    QVector2D sum(QVector2D v1, QVector2D v2);
 };
 
 #endif // MAINWINDOW_H
