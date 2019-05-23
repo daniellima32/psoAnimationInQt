@@ -7,7 +7,10 @@
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 
+#include "mainwindow.h"
 #include "solution.h"
+
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -33,8 +36,58 @@ void MainWindow::buildInitialSolutions()
     {
         position = QVector2D(static_cast<int>(rand() % size.width()), static_cast<int>(rand() % size.height()));
         velocity = QVector2D(static_cast<int>(rand() % size.width()), static_cast<int>(rand() % size.height()));
-        s = Solution(position, velocity);
+        s = Solution(position, velocity, 1, 1, 1, size);
         vectorOfSolutions.push_back(s);
+    }
+}
+
+void MainWindow::pso(int iterations)
+{
+    int GBestID = 0;
+    int fitnessGBest = 0;
+
+    for (auto index = 0; index < iterations;++index)
+    {
+        //Calcula GBest
+        GBestID = 0;
+        fitnessGBest = vectorOfSolutions[0].getFitnessOfPBest();
+
+        for (auto index2 =1; index2 < vectorOfSolutions.size(); ++index2)
+        {
+            if (vectorOfSolutions[index2].getFitnessOfPBest() > fitnessGBest)
+            {
+                GBestID = index2;
+                fitnessGBest = vectorOfSolutions[index2].getFitnessOfPBest();
+            }
+        }
+
+        auto gBest = vectorOfSolutions[GBestID].getPBest();
+        //Indica para os nós atualizarem as suas velocidades e posições
+        for (auto index2 = 0; index2 < vectorOfSolutions.size(); ++index2)
+        {
+            vectorOfSolutions[index2].updateVelocityAndPosition(gBest);
+        }
+
+        //atualiza gui
+        this->refreshPixmap();
+
+        std::cout << "Iteration: " << index << std::endl;
+        std::cout.flush();
+        //wasteTime();
+    }
+}
+
+void MainWindow::mousePressEvent(QMouseEvent *event)
+{
+    pso(1);
+}
+
+void MainWindow::wasteTime()
+{
+    for (int i=0;i<99999;i++)
+    {
+        for (int j=0;j<9999;j++)
+        {}
     }
 }
 
@@ -58,19 +111,6 @@ void MainWindow::refreshPixmap()
     painter.initFrom(this);
 
     painter.setFont(QFont("times", 12));
-
-    /*QPoint origin (10,10), destiny(200,200);
-
-    painter.setBrush(QBrush(Qt::blue, Qt::SolidPattern));
-    painter.setPen(Qt::black);
-
-    QLineF line(origin, destiny);
-    painter.drawLine(line);
-
-    std::vector<QPointF> vec = CoordinatesManip::getArrowPoints(line);
-
-    if (vec.size() > 0)
-        painter.drawConvexPolygon(vec.data(), 3);*/
 
     for (auto solution: vectorOfSolutions)
     {

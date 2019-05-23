@@ -22,12 +22,15 @@ public:
     void refreshPixmap();
     void paintEvent(QPaintEvent *event);
     QPointF convertVector2dtoqpointf(QVector2D vector);
+    void mousePressEvent(QMouseEvent *event);
 private:
     Ui::MainWindow *ui;
     QPixmap pixmap;
 
     VectorOfSolutions vectorOfSolutions;
     void buildInitialSolutions();
+    void pso(int iterations);
+    void wasteTime();
 };
 
 #endif // MAINWINDOW_H

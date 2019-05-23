@@ -29,14 +29,16 @@ SOURCES += \
         mainwindow.cpp \
     coordinatesmanip.cpp \
     NumericalUtils.cpp \
-    solution.cpp
+    solution.cpp \
+    fitness.cpp
 
 HEADERS += \
         mainwindow.h \
     coordinatesmanip.h \
     NumericalUtils.h \
     solution.h \
-    utils.h
+    utils.h \
+    fitness.h
 
 FORMS += \
         mainwindow.ui
