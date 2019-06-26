@@ -4,38 +4,44 @@
 #include <QVector2D>
 #include <QSize>
 
+using Vector5d = std::vector<float>;
+
 class Solution
 {
 public:
+
+    const std::vector<float> minValues = {0,-20,0.01,-10,0.1};
+    const std::vector<float> maxValues = {1500,20,50,50,900};
+
     Solution();
 
-    Solution(QVector2D position, QVector2D velocity, int inercia, int n1, int n2, QSize max);
-    void setPosition(QVector2D position);
-    void setVelocity(QVector2D velocity);
-    void setPBest(QVector2D position);
+    Solution(Vector5d position, Vector5d velocity, float inercia, float n1, float n2, QSize max);
+    void setPosition(Vector5d position);
+    void setVelocity(Vector5d velocity);
+    void setPBest(Vector5d position);
 
-    QVector2D getPosition();
-    QVector2D getVelocity();
-    QVector2D getPBest();
+    Vector5d getPosition();
+    Vector5d getVelocity();
+    Vector5d getPBest();
 
-    int getFitnessOfCurrentPosition();
-    int getFitnessOfPBest();
+    float getFitnessOfCurrentPosition();
+    float getFitnessOfPBest();
 
-    void updateVelocityAndPosition(QVector2D gBest);
-    void updateVelocity(QVector2D gBest);
+    void updateVelocityAndPosition(Vector5d gBest);
+    void updateVelocity(Vector5d gBest);
     void updatePosition();
 
 private:
-    QVector2D position;
-    QVector2D velocity;
-    int fitnessOfCurrentPosition;
+    Vector5d position;
+    Vector5d velocity;
+    float fitnessOfCurrentPosition;
 
-    QVector2D pBest;
-    int fitnessOfPBest;
+    Vector5d pBest;
+    float fitnessOfPBest;
 
-    int inercia;
-    int n1;
-    int n2;
+    float inercia;
+    float n1;
+    float n2;
 
     QSize max;
 };

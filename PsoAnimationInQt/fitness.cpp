@@ -1,6 +1,7 @@
 #include "fitness.h"
 
-int Fitness::calculateFitness(QVector2D vec)
+float Fitness::calculateFitness(Vector5d vec)
 {
-    return 3 * vec.x() - vec.y();
+    //return 3 * vec.x() - vec.y();
+    return 0;
 }

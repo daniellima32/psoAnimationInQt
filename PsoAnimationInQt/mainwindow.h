@@ -19,10 +19,17 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
+
     void refreshPixmap();
     void paintEvent(QPaintEvent *event);
     QPointF convertVector2dtoqpointf(QVector2D vector);
     void mousePressEvent(QMouseEvent *event);
+    float getSampleA();
+    float getSampleB();
+    float getSampleC();
+    float getSampleD();
+    float getSampleG();
 private:
     Ui::MainWindow *ui;
     QPixmap pixmap;

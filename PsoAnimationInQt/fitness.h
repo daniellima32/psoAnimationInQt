@@ -3,10 +3,12 @@
 
 #include <QVector2D>
 
+using Vector5d = std::vector<float>;
+
 class Fitness
 {
 public:
-    static int calculateFitness(QVector2D vec);
+    static float calculateFitness(Vector5d vec);
 };
 
 #endif // FITNESS_H

@@ -7,7 +7,7 @@ Solution::Solution()
 
 }
 
-Solution::Solution(QVector2D position, QVector2D velocity, int inercia, int n1, int n2, QSize max):
+Solution::Solution(Vector5d position, Vector5d velocity, float inercia, float n1, float n2, QSize max):
     inercia(inercia), n1(n1), n2 (n2), max(max)
 {
     setPosition(position);
@@ -19,47 +19,47 @@ Solution::Solution(QVector2D position, QVector2D velocity, int inercia, int n1, 
     this->fitnessOfPBest = Fitness::calculateFitness(pBest);
 }
 
-void Solution::setPosition(QVector2D position)
+void Solution::setPosition(Vector5d position)
 {
     this->position = position;
 }
 
-void Solution::setVelocity(QVector2D velocity)
+void Solution::setVelocity(Vector5d velocity)
 {
     this->velocity = velocity;
 }
 
-void Solution::setPBest(QVector2D position)
+void Solution::setPBest(Vector5d position)
 {
     this->pBest = position;
 }
 
-QVector2D Solution::getPosition()
+Vector5d Solution::getPosition()
 {
     return position;
 }
 
-QVector2D Solution::getVelocity()
+Vector5d Solution::getVelocity()
 {
     return velocity;
 }
 
-QVector2D Solution::getPBest()
+Vector5d Solution::getPBest()
 {
     return pBest;
 }
 
-int Solution::getFitnessOfCurrentPosition()
+float Solution::getFitnessOfCurrentPosition()
 {
     return this->fitnessOfCurrentPosition;
 }
 
-int Solution::getFitnessOfPBest()
+float Solution::getFitnessOfPBest()
 {
     return this->fitnessOfPBest;
 }
 
-void Solution::updateVelocityAndPosition(QVector2D gBest)
+void Solution::updateVelocityAndPosition(Vector5d gBest)
 {
     updateVelocity(gBest);
     updatePosition();
@@ -73,16 +73,23 @@ void Solution::updateVelocityAndPosition(QVector2D gBest)
     }
 }
 
-void Solution::updateVelocity(QVector2D gBest)
+void Solution::updateVelocity(Vector5d gBest)
 {
-    velocity[0] = inercia*velocity[0] +
+    for (int index = 0; index < 5; ++index)
+    {
+        velocity[index] = inercia*velocity[index] +
+                n1*(rand() % 1)*(pBest[index]-position[index])+
+                n2*(rand() % 1)*(gBest[index]-position[index]);
+    }
+
+    /*velocity[0] = inercia*velocity[0] +
             n1*(rand() % 1)*(pBest[0]-position[0])+
             n2*(rand() % 1)*(gBest[0]-position[0]);
     velocity[1] = inercia*velocity[1] +
             n1*(rand() % 1)*(pBest[1]-position[1])+
-            n2*(rand() % 1)*(gBest[1]-position[1]);
+            n2*(rand() % 1)*(gBest[1]-position[1]);*/
 
-    if (velocity[0] > max.width())
+    /*if (velocity[0] > max.width())
     {
         velocity[0] = max.width();
     }
@@ -98,15 +105,32 @@ void Solution::updateVelocity(QVector2D gBest)
     else if (velocity[1] < 0)
     {
         velocity[1] = 0;
-    }
+    }*/
 }
 
 void Solution::updatePosition()
 {
-    position[0] = position[0] + velocity[0];
-    position[1] = position[1] + velocity[1];
+    for (int index = 0; index < 5; ++index)
+    {
+        position[index] = position[index] + velocity[index];
+    }
 
-    if (position[0] > max.width())
+    for (int index = 0; index < 5; ++index)
+    {
+        if (position[index] > maxValues[index]) //maximo
+        {
+            position[index] = maxValues[index]; //maximo
+        }
+        else if (position[index] < minValues[index]) //minimo
+        {
+            position[index] = minValues[index]; //minimo
+        }
+    }
+
+    //position[0] = position[0] + velocity[0];
+    //position[1] = position[1] + velocity[1];
+
+    /*if (position[0] > max.width())
     {
         position[0] = max.width();
     }
@@ -122,5 +146,5 @@ void Solution::updatePosition()
     else if (position[1] < 0)
     {
         position[1] = 0;
-    }
+    }*/
 }

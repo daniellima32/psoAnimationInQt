@@ -20,7 +20,30 @@ MainWindow::MainWindow(QWidget *parent) :
 
     buildInitialSolutions();
 
+    this->pso(100);
+
     this->refreshPixmap();
+}
+
+float MainWindow::getSampleA()
+{
+    return 0;
+}
+float MainWindow::getSampleB()
+{
+    return 0;
+}
+float MainWindow::getSampleC()
+{
+    return 0;
+}
+float MainWindow::getSampleD()
+{
+    return 0;
+}
+float MainWindow::getSampleG()
+{
+    return 0;
 }
 
 void MainWindow::buildInitialSolutions()
@@ -29,14 +52,29 @@ void MainWindow::buildInitialSolutions()
     srand (time(NULL));
     auto size = this->size();
     Solution s;
-    QVector2D position;
-    QVector2D velocity;
+    Vector5d position;
+    //QVector2D position;
+    Vector5d velocity;
 
     for (auto index = 0; index < POPULATION_SIZE; ++index)
     {
-        position = QVector2D(static_cast<int>(rand() % size.width()), static_cast<int>(rand() % size.height()));
-        velocity = QVector2D(static_cast<int>(rand() % size.width()), static_cast<int>(rand() % size.height()));
-        s = Solution(position, velocity, 1, 1, 1, size);
+        //position = QVector2D(static_cast<int>(rand() % size.width()), static_cast<int>(rand() % size.height()));
+        position =
+        {
+            getSampleA(),
+            getSampleB(),
+            getSampleC(),
+            getSampleD(),
+            getSampleG(),
+        };
+
+        //velocity = QVector2D(static_cast<int>(rand() % size.width()), static_cast<int>(rand() % size.height()));
+        velocity =
+        {
+            0.5,0.5,0.5,0.5,0.5
+        };
+
+        s = Solution(position, velocity, 0.5, 0.5, 0.5, size);
         vectorOfSolutions.push_back(s);
     }
 }
@@ -117,7 +155,7 @@ void MainWindow::refreshPixmap()
 
     painter.setFont(QFont("times", 12));
 
-    for (auto solution: vectorOfSolutions)
+    /*for (auto solution: vectorOfSolutions)
     {
         //QLineF line(convertVector2dtoqpointf(solution.getPosition()), convertVector2dtoqpointf(solution.getVelocity()));
         QLineF line(convertVector2dtoqpointf(solution.getPosition()), convertVector2dtoqpointf(sum(solution.getPosition(), solution.getVelocity())));
@@ -128,7 +166,7 @@ void MainWindow::refreshPixmap()
 
         if (vec.size() > 0)
             painter.drawConvexPolygon(vec.data(), 3);
-    }
+    }*/
 
     update();
 }
