@@ -5,7 +5,7 @@
 
 #include "utils.h"
 
-#define POPULATION_SIZE 5
+#define POPULATION_SIZE 50
 
 namespace Ui {
 class MainWindow;
